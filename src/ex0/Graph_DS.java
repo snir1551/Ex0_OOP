@@ -1,11 +1,25 @@
 package ex0;
 
 import java.util.Collection;
+import java.util.HashMap;
 
 public class Graph_DS implements graph {
+
+    /******fields******/
+
+    private HashMap<Integer, node_data> nodes;
+
+    /******************/
+
+    //Constructor
+    public Graph_DS()
+    {
+        nodes = new HashMap<>();
+    }
+
     @Override
     public node_data getNode(int key) {
-        return null;
+        return nodes.get(key); //return the node_data by key
     }
 
     @Override

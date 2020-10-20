@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 
-public class node implements node_data {
+public class NodeData implements node_data {
 
     /******fields******/
     private int key; //key for this node
@@ -16,7 +16,7 @@ public class node implements node_data {
     private int tag;
     /******************/
 
-    public node(int key)
+    public NodeData(int key)
     {
         this.key = key;
         this.mapNode = new HashMap<>();
