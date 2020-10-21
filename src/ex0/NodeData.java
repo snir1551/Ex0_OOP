@@ -11,11 +11,19 @@ public class NodeData implements node_data {
 
     /******fields******/
     private int key; //key for this node
+    private static int countNodes = 0;
     private HashMap<Integer,node_data> mapNode;
     private String info;
     private int tag;
     /******************/
-
+    public NodeData()
+    {
+        this.key = countNodes;
+        countNodes++;
+        this.mapNode = new HashMap<>();
+        info = null;
+        tag = 0;
+    }
     public NodeData(int key)
     {
         this.key = key;
