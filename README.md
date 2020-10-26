@@ -15,4 +15,4 @@ class Graph_Algo: this class does all the complex calculations in the graph
 
 Example of an unweighted and undirected graph:
 
-<img src="https://github.com/snir1551/Ex0_OOP/blob/master/src/Pictures/graph.png">
+<img src="https://github.com/snir1551/Ex0_OOP/blob/master/src/Pictures/graph.png"  width="250">
