@@ -1,5 +1,5 @@
 # Ex0_OOP
-<div dir="rtl" lang="he">
+
 
 This project is about an unweighted and undirected graph that is a set of vertices and edges which connect the vertices, edge is actually neighbor vertex of this and this is actually neighbor of the vertex.
 
@@ -16,5 +16,3 @@ class Graph_Algo: this class does all the complex calculations in the graph
 Example of an unweighted and undirected graph:
 
 <img src="./Picture/graph.jpg">
-
-</div>
