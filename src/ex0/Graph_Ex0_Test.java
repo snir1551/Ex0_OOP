@@ -15,7 +15,7 @@ public class Graph_Ex0_Test {
         System.out.println(g0);
         test2();
         System.out.println(g0);
-        //test3();
+        test3();
         System.out.println(g0);
     }
     public static void test1() {
@@ -29,7 +29,6 @@ public class Graph_Ex0_Test {
             int b = nextRnd(0,v_size);
             g0.connect(a,b);
         }
-       // System.out.println(g0);
     }
     public static void test2() {
         g0.removeEdge(9,3);
@@ -39,7 +38,7 @@ public class Graph_Ex0_Test {
         g0.removeNode(2);
         g0.removeNode(8);
     }
-    /*
+
     public static void test3() {
         ga = new Graph_Algo(g0);
         g1 = ga.copy();
@@ -57,7 +56,7 @@ public class Graph_Ex0_Test {
         }
     }
 
-     */
+
     public static int nextRnd(int min, int max) {
         double v = nextRnd(0.0+min, (double)max);
         int ans = (int)v;

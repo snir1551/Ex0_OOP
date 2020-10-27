@@ -47,5 +47,6 @@ public interface graph_algorithms {
 	 * @return
 	 */
 	public List<node_data> shortestPath(int src, int dest);
+
 }
 
