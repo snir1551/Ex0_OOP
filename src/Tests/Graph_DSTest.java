@@ -45,8 +45,6 @@ public class Graph_DSTest {
         assertTrue(g.nodeSize() == 0);
         g.addNode(node1);
         assertTrue(g.nodeSize() == 1);
-        //g.addNode(null);
-        //assertTrue(g.nodeSize() == 2);
     }
 
     @Test
@@ -106,7 +104,7 @@ public class Graph_DSTest {
         assertNull(g.getNode(node1.getKey()));
         assertTrue(g.nodeSize() == 3);
         System.out.println(g.edgeSize());
-        //assertTrue(g.edgeSize() == 0); // need to be 0
+        assertTrue(g.edgeSize() == 0);
 
     }
 

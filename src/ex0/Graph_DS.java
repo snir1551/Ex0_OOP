@@ -33,13 +33,13 @@ public class Graph_DS implements graph {
 
         for(node_data nd : g.getV())
         {
-            this.addNode(new NodeData(nd.getKey()));
+            addNode(new NodeData(nd.getKey()));
         }
         for(node_data nd : g.getV())
         {
             for(node_data ndd : nd.getNi())
             {
-                this.connect(nd.getKey(),ndd.getKey());
+                connect(nd.getKey(),ndd.getKey());
             }
         }
     }
@@ -85,7 +85,7 @@ public class Graph_DS implements graph {
      */
     @Override
     public void connect(int node1, int node2) {
-        if(mapNode.containsKey(node1) && mapNode.containsKey(node2) && !mapNode.get(node1).hasNi(node2))
+        if(node1 != node2 && mapNode.containsKey(node1) && mapNode.containsKey(node2) && !mapNode.get(node1).hasNi(node2))
         {
             mapNode.get(node1).addNi(mapNode.get(node2));
             mapNode.get(node2).addNi(mapNode.get(node1));
@@ -126,14 +126,18 @@ public class Graph_DS implements graph {
     @Override
     public node_data removeNode(int key) {
         if(mapNode.containsKey(key)) {
-            mapNode.get(key).getNi().clear();
-            for(node_data nd : mapNode.values()) {
-                nd.removeNode(mapNode.get(key));
-            }
-            ++MC; //add +1 to changes in the graph
-        }
-        return mapNode.remove(key);
+            node_data nodeToDelete = mapNode.get(key);
+            countEdges -= nodeToDelete.getNi().size();
+            MC += nodeToDelete.getNi().size() + 1;
 
+            for(node_data nd : nodeToDelete.getNi()) {
+                nd.removeNode(nodeToDelete);
+            }
+
+            nodeToDelete.getNi().clear();
+        }
+
+        return mapNode.remove(key);
     }
 
     /**
@@ -195,6 +199,19 @@ public class Graph_DS implements graph {
                 }
             }
             ans += "]\n";
+//            num = node.getNi().size()-1;
+//            for(node_data n : node.getNi()) {
+//                if(this.hasEdge(node.getKey(),n.getKey()))
+//                {
+//                    ans += n.getKey();
+//                    if(num > 0) {
+//                        ans += ", ";
+//                        --num;
+//                    }
+//                }
+//            }
+//            ans += "]\n";
+
         }
         return ans;
     }

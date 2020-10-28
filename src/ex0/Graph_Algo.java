@@ -16,43 +16,74 @@ public class Graph_Algo implements graph_algorithms {
         init(g);
     }
 
+    /**
+     * Init this set of algorithms on the parameter - graph.
+     * @param g is graph interface
+     */
     @Override
     public void init(graph g) {
         this._graph = g;
     }
 
+    /**
+     * Compute a deep copy of this graph.
+     * @return graph
+     */
     @Override
     public graph copy() {
         Graph_DS g = new Graph_DS(_graph);
         return g;
     }
 
+    /**
+     * by algorithm BFS we're checking connectivity of the graph if all the nodes are black return true else false
+     * other node. NOTE: assume directional graph - a valid path (a-->b) does NOT imply a valid path (b-->a).
+     * @return true if and only if (iff) there is a valid path from EVREY node to each
+     */
     @Override
     public boolean isConnected()
     {
         if(_graph.nodeSize() == 0)
             return true;
-        this.BFS(_graph.getV().iterator().next());
+
+        BFS(_graph.getV().iterator().next());
+
         for(node_data node : _graph.getV())
         {
-            if(!node.getInfo().equals("BLACK"))
+            if(node.getInfo().equals("WHITE"))
             {
                 return false;
             }
         }
+
         return true;
     }
 
+    /**
+     * by algorithm BFS we're getting the shortest path from node to other node by tag
+     * @param src - start node
+     * @param dest - end (target) node
+     * @return
+     */
     @Override
     public int shortestPathDist(int src, int dest) {
         if(_graph.getNode(src) == null || _graph.getNode(dest) == null)
         {
-            return Integer.MAX_VALUE;
+            return -1;
         }
+
         this.BFS(_graph.getNode(src));
-        return _graph.getNode(dest).getTag();
+        int dist = _graph.getNode(dest).getTag();
+
+        return dist == Integer.MAX_VALUE ? -1 : dist;
     }
 
+    /**
+     * by algorithm BFS we're
+     * @param src - start node
+     * @param dest - end (target) node
+     * @return
+     */
     @Override
     public List<node_data> shortestPath(int src, int dest) {
         LinkedList<node_data> list = new LinkedList<>();
@@ -83,6 +114,25 @@ public class Graph_Algo implements graph_algorithms {
         return list;
     }
 
+    /**
+     * BFS algorithms :
+     * He goes over all the vertices in the graph and paints them white by info
+     * and he puts on them distance Max_Value by tag and add to bfsMap the all this nodes by value null
+     * after all that we're setting color gray to start node by info and distance 0 by tag
+     * and after that we init queue of node_data
+     * and add the start node to the queue
+     * while queue is not empty we're doing:
+     * 1)remove the first from the queue
+     * 2)go through all the vertex neighbors of the vertex we removed if neighbor node painted white
+     *   - we're setting his color to gray
+     *   - we're setting his distance to his father(node that we removed from queue) distance + 1
+     *   - we're setting to the mapBfs his father node
+     * 3)we're setting the node that we removed from queue to black
+     * 4)return the mapBfs that contains all fathers in the path
+     *
+     * @param n
+     * @return
+     */
     public HashMap<Integer,node_data> BFS(node_data n) // O(|V|+|E|)
     {
         HashMap<Integer,node_data> bfsMap = new HashMap<>();
@@ -114,6 +164,4 @@ public class Graph_Algo implements graph_algorithms {
         }
         return bfsMap;
     }
-
-
 }

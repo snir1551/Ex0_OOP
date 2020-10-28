@@ -64,8 +64,7 @@ public class NodeData implements node_data {
      */
     @Override
     public void addNi(node_data t) {
-        if(this._key != t.getKey())
-            _mapNode.put(t.getKey(), t);
+        _mapNode.put(t.getKey(), t);
     }
 
     /**
@@ -111,11 +110,14 @@ public class NodeData implements node_data {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         NodeData nodeData = (NodeData) o;
-        return _key == nodeData._key &&
-                _tag == nodeData._tag &&
-                Objects.equals(_mapNode, nodeData._mapNode) &&
-                Objects.equals(_info, nodeData._info);
+
+        return _key == nodeData.getKey();
+//        return _key == nodeData._key &&
+//                _tag == nodeData._tag &&
+//                Objects.equals(_mapNode, nodeData._mapNode) &&
+//                Objects.equals(_info, nodeData._info);
     }
 
     @Override

@@ -18,6 +18,7 @@ public class Graph_AlgoTest {
         node_data node2 = new NodeData();
         node_data node3 = new NodeData();
         node_data node4 = new NodeData();
+        node_data node5 = new NodeData();
         g.addNode(node1);
         g.addNode(node2);
         g.addNode(node3);
@@ -28,10 +29,9 @@ public class Graph_AlgoTest {
         graph_algorithms ga = new Graph_Algo();
         ga.init(g);
         graph g2 = ga.copy();
-        g2.addNode(node4);
-        assertTrue(g2.nodeSize() == 4);
-        System.out.println(g.nodeSize());
-        //assertTrue(g.nodeSize() == 3); // need to be 3
+        g2.addNode(node5);
+        assertTrue(g2.nodeSize() == 5);
+        assertTrue(g.nodeSize() == 4);
 
 
     }
