@@ -28,8 +28,8 @@ Algorithm BFS explanation:
 
 <img src="https://github.com/snir1551/Ex0_OOP/blob/master/src/Pictures/algorithmBFS.png"  width="500">
 
-White color - not visited nodes
-Gray color - about to be visited (keeping them in FIFO queue)
-Black color - visited nodes
+White color - not visited nodes<br>
+Gray color - about to be visited (keeping them in FIFO queue)<br>
+Black color - visited nodes<br>
 
 for more information: https://github.com/snir1551/Ex0_OOP/wiki/Graph_Algo
