@@ -26,4 +26,4 @@ Example of an unweighted and undirected graph:
 
 Algorithm BFS explanation:
 
-<img src="https://github.com/snir1551/Ex0_OOP/blob/master/src/Pictures/algorithmBFS.png"  width="250">
+<img src="https://github.com/snir1551/Ex0_OOP/blob/master/src/Pictures/algorithmBFS.png"  width="500">
