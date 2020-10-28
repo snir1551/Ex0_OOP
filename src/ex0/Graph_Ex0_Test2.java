@@ -42,6 +42,7 @@ public class Graph_Ex0_Test2 {
     private static String _log = "";
 
     /**
+     *
      * Simple main, run all the tests.
      * @param args
      */
