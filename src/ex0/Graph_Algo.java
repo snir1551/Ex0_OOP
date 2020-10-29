@@ -36,7 +36,7 @@ public class Graph_Algo implements graph_algorithms {
     }
 
     /**
-     * by algorithm BFS we're checking connectivity of the graph if all the nodes are black return true else false
+     * by algorithm BFS we're checking connectivity of the graph if all the nodes are WHITE return false else true
      * other node. NOTE: assume directional graph - a valid path (a-->b) does NOT imply a valid path (b-->a).
      * @return true if and only if (iff) there is a valid path from EVREY node to each
      */

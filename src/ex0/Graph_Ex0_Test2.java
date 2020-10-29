@@ -191,6 +191,7 @@ public class Graph_Ex0_Test2 {
      * @param tt - number of times for removing a group of nodes
      * @param jump - the group of nodes to be removed
      */
+
     public static void test_n(int size, int edge, int seed, int tt, int jump) {
         graph g = graph_creator(size, edge, seed);
         graph_algorithms ga = new Graph_Algo();

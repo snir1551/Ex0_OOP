@@ -119,7 +119,7 @@ public class Graph_DS implements graph {
     }
 
     /**
-     * This method remove node_data from the graph
+     * This method remove node_data and his edges from the graph
      * @param key the node_id
      * @return node_data
      */
@@ -199,18 +199,6 @@ public class Graph_DS implements graph {
                 }
             }
             ans += "]\n";
-//            num = node.getNi().size()-1;
-//            for(node_data n : node.getNi()) {
-//                if(this.hasEdge(node.getKey(),n.getKey()))
-//                {
-//                    ans += n.getKey();
-//                    if(num > 0) {
-//                        ans += ", ";
-//                        --num;
-//                    }
-//                }
-//            }
-//            ans += "]\n";
 
         }
         return ans;

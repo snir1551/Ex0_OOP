@@ -6,11 +6,16 @@ import ex0.graph;
 import ex0.node_data;
 import org.junit.Test;
 
+import java.util.Date;
+
+import static org.junit.Assert.assertTrue;
+
 public class Graph_Ex0_ComplexTest {
 
     @Test
     public void Test1()
     {
+        long start = new Date().getTime();
         int vertex = 1000000;
         int edges = vertex*10;
         graph g = new Graph_DS();
@@ -19,9 +24,20 @@ public class Graph_Ex0_ComplexTest {
             node_data node = new NodeData();
             g.addNode(node);
         }
-        for(int i = 0; i<vertex/2; i++)
+        int i = 0;
+        while(edges > g.edgeSize())
         {
-            g.connect(i,i+1);
+            if(i > vertex)
+                i=0;
+            for(node_data n : g.getV())
+            {
+              g.connect(n.getKey(),i);
+            }
+            i++;
         }
+        long end = new Date().getTime();
+        double dt = (end-start)/1000.0;
+        //System.out.println(dt); //3.3sec
+        assertTrue(dt < 10.0);
     }
 }

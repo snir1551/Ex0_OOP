@@ -114,10 +114,6 @@ public class NodeData implements node_data {
         NodeData nodeData = (NodeData) o;
 
         return _key == nodeData.getKey();
-//        return _key == nodeData._key &&
-//                _tag == nodeData._tag &&
-//                Objects.equals(_mapNode, nodeData._mapNode) &&
-//                Objects.equals(_info, nodeData._info);
     }
 
     @Override

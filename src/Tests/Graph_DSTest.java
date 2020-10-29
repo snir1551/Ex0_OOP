@@ -68,16 +68,37 @@ public class Graph_DSTest {
         g.addNode(node1);
         g.addNode(node2);
         g.addNode(node3);
-
+        g.addNode(node4);
+        assertTrue(g.edgeSize() == 0);
         for(node_data n : g.getV())
         {
-
+            g.connect(node1.getKey(),n.getKey());
         }
+        assertTrue(g.edgeSize() == 3);
 
     }
 
     @Test
     public void testGetV() {
+        graph g = new Graph_DS();
+        node_data node1 = new NodeData();
+        node_data node2 = new NodeData();
+        node_data node3 = new NodeData();
+        node_data node4 = new NodeData();
+        g.addNode(node1);
+        g.addNode(node2);
+        g.addNode(node3);
+        g.addNode(node4);
+        g.connect(node1.getKey(),node3.getKey());
+        g.connect(node1.getKey(), node4.getKey());
+        g.connect(node2.getKey(), node3.getKey());
+        for(node_data n : g.getV(node1.getKey()))
+        {
+            n.setInfo("B");
+        }
+        assertNull(node2.getInfo());
+        assertTrue(node3.getInfo().equals("B"));
+        assertTrue(node4.getInfo().equals("B"));
 
     }
 
@@ -110,6 +131,23 @@ public class Graph_DSTest {
 
     @Test
     public void removeEdge() {
+        NodeData node0 = new NodeData();
+        NodeData node1 = new NodeData();
+        NodeData node2 = new NodeData();
+        NodeData node3 = new NodeData();
+        graph g = new Graph_DS();
+        g.addNode(node0);
+        g.addNode(node1);
+        g.addNode(node2);
+        g.addNode(node3);
+        g.connect(node0.getKey(),node1.getKey());
+        g.connect(node0.getKey(),node2.getKey());
+        g.connect(node0.getKey(),node3.getKey());
+        assertTrue(node0.hasNi(node2.getKey()));
+        assertTrue(g.hasEdge(node0.getKey(),node2.getKey()));
+        g.removeEdge(node0.getKey(),node2.getKey());
+        assertFalse(node0.hasNi(node2.getKey()));
+        assertFalse(g.hasEdge(node0.getKey(),node2.getKey()));
 
     }
 
@@ -153,5 +191,25 @@ public class Graph_DSTest {
 
     @Test
     public void getMC() {
+        NodeData node0 = new NodeData();
+        NodeData node1 = new NodeData();
+        NodeData node2 = new NodeData();
+        NodeData node3 = new NodeData();
+        graph g = new Graph_DS();
+        g.addNode(node0);
+        g.addNode(node1);
+        g.addNode(node2);
+        g.addNode(node3);
+        g.connect(node0.getKey(),node1.getKey());
+        g.connect(node0.getKey(),node2.getKey());
+        g.connect(node0.getKey(),node3.getKey());
+        assertTrue(g.getMC() == 7);
+        g.removeNode(node0.getKey());
+        assertTrue(g.getMC() == 11);
+        g.removeNode(node1.getKey());
+        assertTrue(g.getMC() == 12);
+        g.removeNode(node1.getKey());
+        g.removeNode(node0.getKey());
+        assertTrue(g.getMC() == 12);
     }
 }
