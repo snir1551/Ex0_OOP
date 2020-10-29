@@ -21,3 +21,15 @@ class Graph_Algo: this class does all the complex calculations in the graph
 Example of an unweighted and undirected graph:
 
 <img src="https://github.com/snir1551/Ex0_OOP/blob/master/src/Pictures/graph.png"  width="250">
+
+
+
+Algorithm BFS explanation:
+
+<img src="https://github.com/snir1551/Ex0_OOP/blob/master/src/Pictures/algorithmBFS.png"  width="500">
+
+White color - not visited nodes<br>
+Gray color - about to be visited (keeping them in FIFO queue)<br>
+Black color - visited nodes<br>
+
+for more information: https://github.com/snir1551/Ex0_OOP/wiki/Graph_Algo
