@@ -74,6 +74,8 @@ public class Graph_DS implements graph {
      */
     @Override
     public void addNode(node_data n) {
+        if(n == null)
+            throw new NullPointerException("node data is null");
         mapNode.put(n.getKey(),n);
         ++MC; //add +1 to changes in the graph
     }

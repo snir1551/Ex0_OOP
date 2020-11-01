@@ -32,9 +32,15 @@ public class Graph_AlgoTest {
         graph_algorithms ga = new Graph_Algo();
         ga.init(g);
         graph g2 = ga.copy();
+        for(node_data n : g.getV())
+        {
+
+            assertTrue(g.getNode(n.getKey()).getKey() == g2.getNode(n.getKey()).getKey());
+        }
         g2.addNode(node5);
         assertTrue(g2.nodeSize() == 5);
         assertTrue(g.nodeSize() == 4);
+
 
 
     }
