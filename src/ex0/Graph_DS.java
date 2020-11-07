@@ -42,6 +42,8 @@ public class Graph_DS implements graph {
                 connect(nd.getKey(),ndd.getKey());
             }
         }
+
+        this.MC = g.getMC();
     }
 
     /**
