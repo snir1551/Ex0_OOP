@@ -41,8 +41,17 @@ public class Graph_AlgoTest {
         assertTrue(g2.nodeSize() == 5);
         assertTrue(g.nodeSize() == 4);
 
+        g.removeEdge(node1.getKey(),node2.getKey());
+        g.connect(node1.getKey(),node2.getKey());
+        graph_algorithms ga2 = new Graph_Algo();
+        ga2.init(g);
+        graph g3 = ga2.copy();
 
-
+        assertTrue(g3.getMC() == 9);
+        assertTrue(g.getMC() == 9);
+        g3.removeEdge(node1.getKey(), node2.getKey());
+        assertTrue(g3.getMC() == 10);
+        assertTrue(g.getMC() == 9);
     }
 
     @Test
